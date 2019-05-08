@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
+
 namespace Methods_of_possible_directions_for_Zoytendijk
 {
     public partial class Form1 : Form
@@ -16,10 +17,20 @@ namespace Methods_of_possible_directions_for_Zoytendijk
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach(Control item in Controls)
+            int j = 0;
+            foreach (Control item in Controls)
             {
-                if (item.Name.Contains("ID"))
-                    Controls.Remove(item);
+                foreach (Control item2 in Controls)
+                {
+                    //MessageBox.Show(item.Name, (j++).ToString(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    if (item2.Name.Contains("ID"))
+                    {
+                        //MessageBox.Show(item2.Name, "!!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Controls.Remove(item2);
+                    }
+                }
+                    //Controls.Remove(item);
             }
 
             // В случае изменения ограничений, выбираем индекс выбранного элемента
@@ -73,7 +84,7 @@ namespace Methods_of_possible_directions_for_Zoytendijk
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Все переменные выражаются через x1,x2. Все математические операции выражаются через общепринятые символы +, -, *, /, ^. Корень квадратный √¯ ≡ sqrt, степень корня ≡ x ^ (2 / 3), (x - 1) ^ (1 / 3). Число π ≡ pi, число e ≡ exp(1), ∞ ≡ infinity. e^x = exp(x), log5(x) ≡ log(x, 5). Тригонометрические функции: cos(x), sin(x), tg(x), ctg(x), arccos(x), arcsin(x), arctg(x), arcctg(x)", "Правила ввода функции", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Все переменные выражаются через x1, x2. Все математические операции выражаются через общепринятые символы +, -, *, /, ^. Корень квадратный √¯ ≡ sqrt, степень корня ≡ x ^ (2 / 3), (x - 1) ^ (1 / 3). Число π ≡ pi, число e ≡ exp(1), ∞ ≡ infinity. e^x = exp(x), log5(x) ≡ log(x, 5). Тригонометрические функции: cos(x), sin(x), tg(x), ctg(x), arccos(x), arcsin(x), arctg(x), arcctg(x)", "Правила ввода функции", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
